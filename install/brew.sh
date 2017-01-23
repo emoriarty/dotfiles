@@ -18,6 +18,7 @@ apps=(
   macvim
   rbenv
   ruby-build
+  the_silver_searcher
   tmux
   tree
   vim
