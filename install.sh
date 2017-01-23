@@ -9,16 +9,28 @@ echo "$DOTFILES_DIR"
 
 # Bunch of symlinks
 # (by default zsh prevails before bash)
-# ln -sfv "$DOTFILES_DIR/runcom/.bash_profile" ~
-# ln -sfv "$DOTFILES_DIR/runcom/.inputrc" ~
-# ln -sfv "$DOTFILES_DIR/runcom/.gemrc" ~
 ln -sfv "$DOTFILES_DIR/runcom/.zshrc" ~
+ln -sfv "$DOTFILES_DIR/runcom/.tmux.conf" ~
+ln -sfv "$DOTFILES_DIR/runcom/.ctags" ~
+ln -sfv "$DOTFILES_DIR/runcom/.vimrc" ~
+ln -sfv "$DOTFILES_DIR/runcom/.vimrc.bundle" ~
+ln -sfv "$DOTFILES_DIR/runcom/.vim" ~
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"
-# . "$DOTFILES_DIR/install/bash.sh"
-. "$DOTFILES_DIR/install/zsh.sh"
-
 if [ "$(uname)" == "Darwin" ]; then
   . "$DOTFILES_DIR/install/brew-cask.sh"
 fi
+
+# Configuring vim
+if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
+  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+vim -u "$HOME"/.vimrc.bundle +PlugInstall +PlugClean! +qa -
+
+# Setting zsh
+. "$DOTFILES_DIR/install/zsh.sh"
+
+

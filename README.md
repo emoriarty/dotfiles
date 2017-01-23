@@ -8,26 +8,27 @@ It installs brew, zsh with [antigen](https://github.com/zsh-users/antigen) and [
 * Core
   * [Homebrew](http://brew.sh/), [homebrew-cask](http://caskroom.io/)
   * zsh
+  * [Antigen](https://github.com/zsh-users/antigen)
+    * [oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
   * [ndenv](https://github.com/riywo/ndenv)
-  * brew
-    * antigen
-      * [oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
-    * git
-    * git-extras
-    * grep
-    * macvim
-    * tree
-    * vim
-    * wget
-  * brew cask
-    * firefox
-    * google-chrome
-    * google-drive
-    * spotify
-    * sublime-text
-    * virtual-box
-    * visual-studio-code
-  
+  * [rbenv](https://github.com/rbenv/rbenv)
+
+### More tools and programs
+
+  * git
+  * git-extras
+  * grep
+  * macvim
+  * tree
+  * vim
+  * wget
+  * firefox
+  * google-chrome
+  * google-drive
+  * spotify
+  * sublime-text
+  * virtual-box
+  * visual-studio-code
 
 ## Install
 
@@ -37,7 +38,7 @@ On a sparkling fresh installation of MacOS:
 
 ### Clone with git
 
-git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
+git clone https://github.com/emoriarty/dotfiles.git ~/.dotfiles
 source ~/.dotfiles/install.sh
 
 ## Additional resources

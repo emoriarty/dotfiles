@@ -11,10 +11,14 @@ brew upgrade
 
 apps=(
   antigen
+  doxygen
   git
   git-extras
   grep --with-default-names
   macvim
+  rbenv
+  ruby-build
+  tmux
   tree
   vim
   wget
