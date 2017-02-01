@@ -11,6 +11,9 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set mouse=a       " Enable mouse use in all modes
+set ttyfast       " Send more characters for redraws
+set exrc          " Enable configuration files per project
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -82,6 +85,7 @@ endif
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Numbers
 set number
@@ -135,10 +139,27 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {"regex": "possibly useless use of a variable in void context"}
+let g:jsx_ext_required = 0
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=5
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
@@ -149,3 +170,11 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" airline
+let g:airline_powerline_fonts = 1
+
+" Disabling unsafe commands in your project-specific .vimrc
+" This will prevent :autocmd, shell and write commands from being run inside 
+" project-specific .vimrc files unless they’re owned by you.
+set secure

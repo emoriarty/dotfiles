@@ -17,7 +17,9 @@ apps=(
   grep --with-default-names
   macvim
   rbenv
+  reattach-to-user-namespace
   ruby-build
+  the_silver_searcher
   tmux
   tree
   vim

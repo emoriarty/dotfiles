@@ -48,6 +48,7 @@ source ~/.dotfiles/install.sh
   * [homebrew-cask](http://caskroom.io/) / [usage](https://github.com/phinze/homebrew-cask/blob/master/USAGE.md)
   * [Bash prompt](http://wiki.archlinux.org/index.php/Color_Bash_Prompt)
   * [Solarized Color Theme for GNU ls](https://github.com/seebi/dircolors-solarized)		
+  * [Ctags and vim](https://andrew.stwrt.ca/posts/vim-ctags/)
 
 ## Credits
 

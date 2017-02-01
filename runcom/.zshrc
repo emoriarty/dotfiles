@@ -1,4 +1,5 @@
 export PATH="$HOME/.ndenv/bin:$PATH"
+export PATH="$PATH:$HOME/.dotfiles/bin"
 
 source ~/.dotfiles/antigen/antigen.zsh
 
@@ -6,6 +7,8 @@ source ~/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle tmux
+antigen bundle npm
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle Tarrasch/zsh-autoenv
@@ -15,10 +18,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
 antigen theme robbyrussell
+# antigen theme agnoster
 
 # Tell antigen that you're done.
 antigen apply
 
-git clone https://github.com/zsh-users/antigen.git
-
 eval "$(ndenv init -)"
+
+alias ctags="`brew --prefix`/bin/ctags"
