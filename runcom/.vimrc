@@ -1,19 +1,30 @@
 " Leader
 let mapleader = " "
 
-set backspace=2   " Backspace deletes like most programs in insert mode
+set encoding=utf-8  " default encoding
+set backspace=2     " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile      " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
-set mouse=a       " Enable mouse use in all modes
-set ttyfast       " Send more characters for redraws
-set exrc          " Enable configuration files per project
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set laststatus=2    " Always display the status line
+set autowrite       " Automatically :write before running commands
+set mouse=a         " Enable mouse use in all modes
+set ttyfast         " Send more characters for redraws
+set exrc            " Enable configuration files per project
+set nocompatible    " Gets rid of all compatibility with vi
+set modelines=0     " Prevents possible security exploit (http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html)
+set undofile        " Creates a file which help you to undo actions even after closing and reopening a file
+set ignorecase      " Case insesitive for searchs
+set smartcase       " If one of the search cases has uppercase the search will be case-sencitive
+set gdefault        " Sets substitutions globally, no need adding /g at the end
+set incsearch       " This option and the two next ones higlight search results in a handy way
+set showmatch
+set hlsearch
+nnoremap <leader>, :noh<cr> " Clean highlight search results
+set wrap lbr
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -24,6 +35,15 @@ endif
 if filereadable(expand("~/.vimrc.bundle"))
   source ~/.vimrc.bundle
 endif
+
+" ColorScheme
+colorscheme spring-night
+" colorscheme solarized
+" if has('gui_running')
+"   set background=light
+" else
+"   set background=dark
+" endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -55,12 +75,17 @@ let g:is_posix = 1
 
 " Softtabs, 2 spaces
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set list
+set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬
+" Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
@@ -82,14 +107,18 @@ if executable('ag')
   endif
 endif
 
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
 " highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Numbers
-set number
-set numberwidth=5
+" set number
+set relativenumber
+set numberwidth=2
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -125,6 +154,12 @@ nnoremap <silent> <leader>gt :TestVisit<CR>
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
+" Strip all trailing whitespace in current file
+nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Escape
+inoremap jj <ESC>
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -132,37 +167,40 @@ let g:html_indent_tags = 'li\|p'
 set splitbelow
 set splitright
 
+" Split window and jump to it
+nnoremap <Leader>w <C-w>v<C-w>l " vertical split on the right
+nnoremap <Leader>s <C-w>s<C-w>j " horizontal split at bottom
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Comments
+nnoremap <Leader>c :TComment<cr>
+
+" Ack search tool
+nnoremap <Leader>a :Ack
+
 " configure syntastic syntax checking to check on open as well as save
 let g:jsx_ext_required = 0
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=5
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
+
+" LINTING
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 1
+let g:ale_lint_on_save = 0
+let g:ale_lint_delay = 0
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\  'sh': ['shellcheck'],
+\  'json': ['jsonlint'],
+\  'css': ['csslint'],
+\}
+
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Autocomplete with dictionary words when spell check is on
@@ -174,7 +212,11 @@ set diffopt+=vertical
 " airline
 let g:airline_powerline_fonts = 1
 
+" Markdown syntax highlight
+" Call everytime we open a Markdown file
+autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown
+
 " Disabling unsafe commands in your project-specific .vimrc
-" This will prevent :autocmd, shell and write commands from being run inside 
+" This will prevent :autocmd, shell and write commands from being run inside
 " project-specific .vimrc files unless they’re owned by you.
 set secure

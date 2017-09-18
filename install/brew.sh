@@ -10,6 +10,7 @@ brew upgrade
 # Install packages
 
 apps=(
+  ack
   antigen
   doxygen
   git

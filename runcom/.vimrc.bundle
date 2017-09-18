@@ -28,31 +28,42 @@ call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
-Plug 'kchmck/vim-coffee-script'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
-Plug 'scrooloose/nerdtree'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Navigation
+Plug 'scrooloose/nerdtree'
+" Searching and finding
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+" Git
+Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+" Syntax hightlighting
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'briancollins/vim-jst'
+" Colors schemes
+Plug 'altercation/vim-colors-solarized'
+Plug 'rhysd/vim-color-spring-night'
+" Linter
+Plug 'w0rp/ale'
 
 call plug#end()
 

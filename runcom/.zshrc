@@ -26,3 +26,6 @@ antigen apply
 eval "$(ndenv init -)"
 
 alias ctags="`brew --prefix`/bin/ctags"
+
+# added by travis gem
+[ -f /Users/enric/.travis/travis.sh ] && source /Users/enric/.travis/travis.sh
