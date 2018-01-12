@@ -1,0 +1,101 @@
+" General {{{
+set nocompatible    " Prevent vi compatibility, ensuring unexpected effects
+set encoding=utf-8  " Default character encoding
+set showcmd         " Displays commands entered in the file
+set showmode        " Show current mode at bottom
+set visualbell      " Use visual alert instead of sound
+set history=50      " Sets how many lines of history VIM has to remember
+set autoread        " Updates buffer when file changed externally
+set backspace=eol,start,indent  " Backspace works as expected
+set hidden          " Buffers are hidden automatically even if they are modified
+let mapleader=" "   " Map leader allows default key to combine with other commands
+filetype on  " Load file type specific settings
+"}}}
+" Functions {{{
+function MkDir(path)
+  silent execute '!mkdir '.a:path.' > /dev/null 2>&1'
+endfunction
+" }}}
+" UI {{{
+set ruler           " Show the line and column number of the cursor position
+set relativenumber  " Shows the relative number from the current cursor position
+set numberwidth=2   " Number of columns left for line numbers
+set cursorline      " Draws an horizontal background or underline on the line the cursor is present
+set nowrap          " Don't wrap lines
+set lazyredraw      " Don't redraw screen if not needed 
+"}}}
+" Scrolling {{{
+set scrolloff=8       " Screen lines to keep above and below the cursor when scrolling
+set sidescrolloff=16  " Screen columns to keep left and right the cursor when side scrolling
+set sidescroll=0      " Number of columns the scrolling moves off the screen
+" }}}
+" Indentation {{{
+set tabstop=2     " Tab size
+set shiftwidth=2  " Number of spaces when indenting
+set expandtab     " Use spaces instead of tabs
+set smarttab      " Smart tabs
+set autoindent    " Auto indent
+set smartindent   " Smart indent
+"}}}
+" Completion {{{
+set wildmenu  " Enabling smart command line completion on wildcard (<Tab> by default)>
+"}}}
+" Menu {{{
+"source $VIMRUNTIME/delmenu.vim  " Clearing all menus 
+"source $VIMRUNTIME/menu.vim     " Lading default menus (default in gvim)
+"}}}
+" Mappings {{{
+"set wildcharm=<tab>             " Sets the key <Ctrl-Z> as a wildcard for mappings and macros executing the autocompletion
+" :emenu is executed when typing <F4> along with the autocompletion
+"map <F4> :emenu <tab>
+" Split window and jump to it
+nnoremap <Leader>w <C-w>v<C-w>l " vertical split on the right
+nnoremap <Leader>s <C-w>s<C-w>j " horizontal split at bottom
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+"}}}
+" Searching {{{
+set ignorecase  " Allows searching not being case-sensitive
+set smartcase   " Search patterns with uppercase letters are case-sensitive
+set hlsearch    " Highlights all matches
+set incsearch   " Incremental search: match first result as you type search pattern
+"}}}
+" Colors {{{
+syntax enable " Setting on default syntax colors
+"}}}
+" Filetype {{{
+filetype indent on  " Load specific settings based on file type
+"}}}
+" Backups {{{
+call MkDir('~/.vim/cache')
+call MkDir('~/.vim/cache/swap')
+call MkDir('~/.vim/cache/backup')
+call MkDir('~/.vim/cache/undo')
+set directory^=~/.vim/cache/swap//    " Swap files are stored in provided path
+set backupdir^=~/.vim/cache/backup//  " Backup files are store in provided path
+set undodir^=~/.vim/cache/undo//      " Undo files are stored in provided path
+set backup    " Enables next option if you like to persist backup files
+set undofile  " Enables storing undo history per file
+"}}}
+" Windows {{{
+set splitbelow  " Open new split below
+set splitright  " Open new vertical split right
+" }}}
+" Plugins {{{
+" Download vim-plug if is not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+  Plug 'elmcast/elm-vim'
+call plug#end()
+" Elm options
+let g:elm_format_autosave = 1
+"}}}
+" Extra {{{
+" vim:foldmethod=marker:foldlevel=0
+"}}}

@@ -24,8 +24,12 @@ antigen theme robbyrussell
 antigen apply
 
 eval "$(ndenv init -)"
+eval "$(rbenv init -)"
 
 alias ctags="`brew --prefix`/bin/ctags"
+
+# How much time to wait for additional characters in sequence
+KEYTIMEOUT=1
 
 # added by travis gem
 [ -f /Users/enric/.travis/travis.sh ] && source /Users/enric/.travis/travis.sh

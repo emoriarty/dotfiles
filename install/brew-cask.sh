@@ -12,7 +12,6 @@ apps=(
   google-drive
   iterm2
   skype
-  spotify
   sublime-text
   virtualbox
   vlc

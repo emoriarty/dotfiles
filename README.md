@@ -52,4 +52,4 @@ source ~/.dotfiles/install.sh
 
 ## Credits
 
-Many thanks to the [dotfiles community](http://dotfiles.github.io/) and the creators of the incredibly useful tools.:
+Many thanks to the [dotfiles community](http://dotfiles.github.io/) and the creators of the incredibly useful tool.
