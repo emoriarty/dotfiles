@@ -56,12 +56,22 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Strip all trailing whitespace in current file
+nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" Clean highlight search results
+nnoremap <leader>, :noh<cr>
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 "}}}
 " Searching {{{
 set ignorecase  " Allows searching not being case-sensitive
 set smartcase   " Search patterns with uppercase letters are case-sensitive
 set hlsearch    " Highlights all matches
 set incsearch   " Incremental search: match first result as you type search pattern
+" Ignore next file patterns when searching and completion
+set wildignore=*/node_modules/*
 "}}}
 " Colors {{{
 syntax enable " Setting on default syntax colors
@@ -92,6 +102,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
   Plug 'elmcast/elm-vim'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 " Elm options
 let g:elm_format_autosave = 1
