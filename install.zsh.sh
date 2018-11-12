@@ -21,5 +21,8 @@ if [ "$(uname)" == "Darwin" ]; then
   . "$DOTFILES_DIR/install/brew-cask.sh"
 fi
 
+# Install antigen
+curl -L git.io/antigen > ~/.antigen.zsh
+
 # Setting zsh
 . "$DOTFILES_DIR/install/zsh.sh"

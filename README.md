@@ -19,15 +19,14 @@ It installs brew, zsh with [antigen](https://github.com/zsh-users/antigen) and [
   * git-extras
   * grep
   * macvim
+  * nvim
   * tree
   * vim
   * wget
   * firefox
   * google-chrome
   * google-drive
-  * spotify
   * sublime-text
-  * virtual-box
   * visual-studio-code
 
 ## Install
