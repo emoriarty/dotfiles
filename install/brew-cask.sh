@@ -11,9 +11,7 @@ apps=(
   google-chrome
   google-drive
   iterm2
-  skype
   sublime-text
-  virtualbox
   vlc
   visual-studio-code
 )

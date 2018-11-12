@@ -17,6 +17,7 @@ apps=(
   git-extras
   grep --with-default-names
   macvim
+  nvim
   rbenv
   reattach-to-user-namespace
   ruby-build

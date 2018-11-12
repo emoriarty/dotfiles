@@ -11,6 +11,32 @@ set hidden          " Buffers are hidden automatically even if they are modified
 let mapleader=" "   " Map leader allows default key to combine with other commands
 filetype on  " Load file type specific settings
 "}}}
+" Plugins {{{
+" Download vim-plug if is not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+"  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" ndif
+call plug#begin('~/.vim/plugged')
+  Plug 'elmcast/elm-vim'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'tpope/vim-fugitive'
+  Plug 'morhetz/gruvbox'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'w0rp/ale'
+  Plug 'reasonml-editor/vim-reason-plus'
+call plug#end()
+" Elm options
+let g:elm_format_autosave = 1
+" gruvbox options
+let g:gruvbox_bold=1
+let g:grivbox_italic=1
+let g:gruvbox_contrast_light='hard'
+"}}}
 " Functions {{{
 function MkDir(path)
   silent execute '!mkdir '.a:path.' > /dev/null 2>&1'
@@ -72,9 +98,15 @@ set hlsearch    " Highlights all matches
 set incsearch   " Incremental search: match first result as you type search pattern
 " Ignore next file patterns when searching and completion
 set wildignore=*/node_modules/*
+set include+=^import.*from.'\zs.*\ze'
 "}}}
 " Colors {{{
 syntax enable " Setting on default syntax colors
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme gruvbox
+set background=dark
 "}}}
 " Filetype {{{
 filetype indent on  " Load specific settings based on file type
@@ -94,20 +126,6 @@ set undofile  " Enables storing undo history per file
 set splitbelow  " Open new split below
 set splitright  " Open new vertical split right
 " }}}
-" Plugins {{{
-" Download vim-plug if is not present
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-call plug#begin('~/.vim/plugged')
-  Plug 'elmcast/elm-vim'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-fugitive'
-call plug#end()
-" Elm options
-let g:elm_format_autosave = 1
-"}}}
 " Extra {{{
 " vim:foldmethod=marker:foldlevel=0
 "}}}
