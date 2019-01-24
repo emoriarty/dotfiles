@@ -22,23 +22,40 @@ endif
 "  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " ndif
 call plug#begin('~/.vim/plugged')
-  Plug 'elmcast/elm-vim'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'morhetz/gruvbox'
-  Plug 'leafgarland/typescript-vim'
   Plug 'w0rp/ale'
-  Plug 'reasonml-editor/vim-reason-plus'
+  Plug 'vim-airline/vim-airline'
+  " typescript
+  Plug 'HerringtonDarkholme/yats.vim' 
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/denite.nvim'
+  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
-" Elm options
-let g:elm_format_autosave = 1
 " gruvbox options
-let g:gruvbox_bold=1
-let g:grivbox_italic=1
+let g:gruvbox_bold=0
+let g:gruvbox_italic=1
 let g:gruvbox_contrast_light='hard'
-"}}}
+let g:gruvbox_contrast_light='soft'
+" Ale options
+let g:ale_linters = {
+\ 'javascript': ['prettier'],
+\}
+let g:ale_fixers = {
+\ 'javascript': ['prettier'],
+\}
+let g:ale_linters_explicit = 1
+" Airline options
+let g:airline_powerline_fonts = 1
+" CtrlP options
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+"}}}light
 " Functions {{{
-function MkDir(path)
+function MKDir(path)
   silent execute '!mkdir '.a:path.' > /dev/null 2>&1'
 endfunction
 " }}}
@@ -65,6 +82,8 @@ set smartindent   " Smart indent
 "}}}
 " Completion {{{
 set wildmenu  " Enabling smart command line completion on wildcard (<Tab> by default)>
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 "}}}
 " Menu {{{
 "source $VIMRUNTIME/delmenu.vim  " Clearing all menus 
@@ -112,10 +131,10 @@ set background=dark
 filetype indent on  " Load specific settings based on file type
 "}}}
 " Backups {{{
-call MkDir('~/.vim/cache')
-call MkDir('~/.vim/cache/swap')
-call MkDir('~/.vim/cache/backup')
-call MkDir('~/.vim/cache/undo')
+call MKDir('~/.vim/cache')
+call MKDir('~/.vim/cache/swap')
+call MKDir('~/.vim/cache/backup')
+call MKDir('~/.vim/cache/undo')
 set directory^=~/.vim/cache/swap//    " Swap files are stored in provided path
 set backupdir^=~/.vim/cache/backup//  " Backup files are store in provided path
 set undodir^=~/.vim/cache/undo//      " Undo files are stored in provided path

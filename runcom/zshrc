@@ -28,7 +28,7 @@ eval "$(rbenv init -)"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 alias ctags="`brew --prefix`/bin/ctags"
-
+alias vi=nvim
 # How much time to wait for additional characters in sequence
 KEYTIMEOUT=1
 
