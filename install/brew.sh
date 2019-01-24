@@ -17,6 +17,7 @@ apps=(
   git-extras
   grep --with-default-names
   macvim
+  nodenv
   nvim
   rbenv
   reattach-to-user-namespace

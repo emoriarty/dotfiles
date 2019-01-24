@@ -13,7 +13,7 @@ ln -sfv "$DOTFILES_DIR/runcom/zshrc" ~/.zshrc
 ln -sfv "$DOTFILES_DIR/runcom/tmux.conf" ~/.tmux.conf
 ln -sfv "$DOTFILES_DIR/runcom/ctags" ~/.ctags
 ln -sfv "$DOTFILES_DIR/runcom/vimrc" ~/.vimrc
-ln -sfv "$DOTFILES_DIR/runcom/init.vm" ~/.config/nvim/init.vim
+ln -sfv "$DOTFILES_DIR/runcom/init.vim" ~/.config/nvim/init.vim
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"

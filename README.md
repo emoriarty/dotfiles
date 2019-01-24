@@ -10,7 +10,7 @@ It installs brew, zsh with [antigen](https://github.com/zsh-users/antigen) and [
   * zsh
   * [Antigen](https://github.com/zsh-users/antigen)
     * [oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
-  * [ndenv](https://github.com/riywo/ndenv)
+  * [nodenv](https://github.com/nodenv/nodenv)
   * [rbenv](https://github.com/rbenv/rbenv)
 
 ### More tools and programs

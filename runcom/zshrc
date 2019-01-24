@@ -1,4 +1,3 @@
-export PATH="$HOME/.ndenv/bin:$PATH"
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
 source ~/.antigen.zsh
@@ -23,7 +22,7 @@ antigen theme robbyrussell
 # Tell antigen that you're done.
 antigen apply
 
-eval "$(ndenv init -)"
+eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
