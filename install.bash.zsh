@@ -9,6 +9,7 @@ echo "$DOTFILES_DIR"
 
 # Bunch of symlinks
 # (by default zsh prevails before bash)
+ln -sfv "$DOTFILES_DIR/runcom/zshenv" ~/.zshenv
 ln -sfv "$DOTFILES_DIR/runcom/zshrc" ~/.zshrc
 ln -sfv "$DOTFILES_DIR/runcom/tmux.conf" ~/.tmux.conf
 ln -sfv "$DOTFILES_DIR/runcom/ctags" ~/.ctags

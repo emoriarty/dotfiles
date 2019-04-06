@@ -1,26 +1,33 @@
-export PATH="$PATH:$HOME/.dotfiles/bin"
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-source ~/.antigen.zsh
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/lib
+zplug "lib/clipboard", from:oh-my-zsh
+zplug "lib/completion", from:oh-my-zsh
+zplug "lib/directories", from:oh-my-zsh
+zplug "lib/functions", from:oh-my-zsh
+zplug "lib/git", from:oh-my-zsh
+zplug "lib/grep", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
+zplug "lib/termsupport", from:oh-my-zsh
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/npm", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "Tarrasch/zsh-autoenv", from:github
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "zsh-users/zsh-syntax-highlighting", from:github,  defer:2
+zplug load --verbose
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle tmux
-antigen bundle npm
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle Tarrasch/zsh-autoenv
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme.
-antigen theme robbyrussell
-# antigen theme agnoster
-
-# Tell antigen that you're done.
-antigen apply
+# Actually install plugins, prompt user input
+if ! zplug check --verbose; then
+  printf "Install zplug plugins? [y/N]: "
+  if read -q; then
+      echo; zplug install
+  fi
+fi
 
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
@@ -34,12 +41,16 @@ KEYTIMEOUT=1
 # added by travis gem
 [ -f /Users/enric/.travis/travis.sh ] && source /Users/enric/.travis/travis.sh
 
-# execute first local npm bin
-function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
+# path navigation whitout cd
+setopt autocd autopushd pushdignoredups
+# history navigation: https://unix.stackexchange.com/a/97844
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
-export M2_HOME=/usr/local/Cellar/maven@3.0/3.0.5/libexec
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2_HOME/bin
-export MAVEN_OPTS="-Xmx3000m -XX:PermSize=1024m -XX:MaxPermSize=1024m"
+# Functions
+function aliases() {
+  alias | grep -i $1 | sort -R | less
+}

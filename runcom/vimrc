@@ -27,11 +27,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'w0rp/ale'
   Plug 'vim-airline/vim-airline'
-  " typescript
+  " syntax
+  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript'
   Plug 'HerringtonDarkholme/yats.vim' 
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'Shougo/denite.nvim'
-  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  Plug 'elzr/vim-json'
 call plug#end()
 " gruvbox options
 let g:gruvbox_bold=0
@@ -40,10 +40,10 @@ let g:gruvbox_contrast_light='hard'
 let g:gruvbox_contrast_light='soft'
 " Ale options
 let g:ale_linters = {
-\ 'javascript': ['prettier'],
+\ 'javascript': ['prettier', 'eslint'],
 \}
 let g:ale_fixers = {
-\ 'javascript': ['prettier'],
+\ 'javascript': ['prettier', 'eslint'],
 \}
 let g:ale_linters_explicit = 1
 " Airline options
@@ -51,8 +51,6 @@ let g:airline_powerline_fonts = 1
 " CtrlP options
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-" Deoplete
-let g:deoplete#enable_at_startup = 1
 "}}}light
 " Functions {{{
 function MKDir(path)

@@ -1,15 +1,14 @@
 # .files
 
 These are a basic dotfiles based on [webpro/dotfiles](https://github.com/webpro/dotfiles).
-It installs brew, zsh with [antigen](https://github.com/zsh-users/antigen) and [vim](http://www.vim.org/).
+It installs brew, zsh with [zplug](https://github.com/zplug/zplug) and [vim](http://www.vim.org/).
 
 ## Package overview
 
 * Core
   * [Homebrew](http://brew.sh/), [homebrew-cask](http://caskroom.io/)
   * zsh
-  * [Antigen](https://github.com/zsh-users/antigen)
-    * [oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
+  * [zplug](https://github.com/zplug/zplug)
   * [nodenv](https://github.com/nodenv/nodenv)
   * [rbenv](https://github.com/rbenv/rbenv)
 
@@ -17,16 +16,13 @@ It installs brew, zsh with [antigen](https://github.com/zsh-users/antigen) and [
 
   * git
   * git-extras
-  * grep
-  * macvim
   * nvim
   * tree
-  * vim
+  * tmux
   * wget
   * firefox
   * google-chrome
   * google-drive
-  * sublime-text
   * visual-studio-code
 
 ## Install
@@ -46,7 +42,6 @@ source ~/.dotfiles/install.sh
   * [Homebrew](http://brew.sh/) / [FAQ](https://github.com/Homebrew/homebrew/wiki/FAQ)
   * [homebrew-cask](http://caskroom.io/) / [usage](https://github.com/phinze/homebrew-cask/blob/master/USAGE.md)
   * [Bash prompt](http://wiki.archlinux.org/index.php/Color_Bash_Prompt)
-  * [Solarized Color Theme for GNU ls](https://github.com/seebi/dircolors-solarized)		
   * [Ctags and vim](https://andrew.stwrt.ca/posts/vim-ctags/)
 
 ## Credits

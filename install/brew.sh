@@ -10,22 +10,14 @@ brew upgrade
 # Install packages
 
 apps=(
-  ack
-  antigen
-  doxygen
   git
   git-extras
   grep --with-default-names
-  macvim
   nodenv
   nvim
-  rbenv
   reattach-to-user-namespace
-  ruby-build
-  the_silver_searcher
   tmux
   tree
-  vim
   wget
 )
 

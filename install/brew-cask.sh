@@ -7,12 +7,10 @@ brew tap caskroom/versions
 # Install packages
 
 apps=(
-  firefox
+  firefox-developer-edition
   google-chrome
   google-drive
   iterm2
-  sublime-text
-  vlc
   visual-studio-code
 )
 
