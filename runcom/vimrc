@@ -32,6 +32,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'HerringtonDarkholme/yats.vim' 
   Plug 'elzr/vim-json'
+  " Markdown
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 call plug#end()
 " gruvbox options
 let g:gruvbox_bold=0
@@ -39,31 +43,41 @@ let g:gruvbox_italic=1
 let g:gruvbox_contrast_light='hard'
 let g:gruvbox_contrast_light='soft'
 " Ale options
-let g:ale_linters = {
+let g:ale_linters={
 \ 'javascript': ['prettier', 'eslint'],
 \}
-let g:ale_fixers = {
+let g:ale_fixers={
 \ 'javascript': ['prettier', 'eslint'],
 \}
-let g:ale_linters_explicit = 1
+let g:ale_linters_explicit=1
 " Airline options
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 " CtrlP options
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-"}}}light
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
+" UltiSnips
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-f>'
+let g:UltiSnipsJumpBackwardTrigger='<c-b>'
+"}}}
 " Functions {{{
-function MKDir(path)
-  silent execute '!mkdir '.a:path.' > /dev/null 2>&1'
-endfunction
+if !exists('*MKDir')
+  function MKDir(path)
+    silent execute '!mkdir '.a:path.' > /dev/null 2>&1'
+  endfunction
+endif
 " }}}
 " UI {{{
 set ruler           " Show the line and column number of the cursor position
 set relativenumber  " Shows the relative number from the current cursor position
 set numberwidth=2   " Number of columns left for line numbers
 set cursorline      " Draws an horizontal background or underline on the line the cursor is present
+set cursorcolumn    " Draws an vertical backgroung where the cursor is present
 set nowrap          " Don't wrap lines
 set lazyredraw      " Don't redraw screen if not needed 
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "}}}
 " Scrolling {{{
 set scrolloff=8       " Screen lines to keep above and below the cursor when scrolling
