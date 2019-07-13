@@ -16,7 +16,7 @@ It installs brew, zsh with [zplug](https://github.com/zplug/zplug) and [vim](htt
 
   * git
   * git-extras
-  * nvim
+  * vim
   * tree
   * tmux
   * wget

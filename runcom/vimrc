@@ -67,10 +67,14 @@ if !exists('*MKDir')
   endfunction
 endif
 " }}}
+" Macros {{{
+runtime macros/matchit.vim
+" }}}
 " UI {{{
 set ruler           " Show the line and column number of the cursor position
 set relativenumber  " Shows the relative number from the current cursor position
 set numberwidth=2   " Number of columns left for line numbers
+set nu!
 set cursorline      " Draws an horizontal background or underline on the line the cursor is present
 set cursorcolumn    " Draws an vertical backgroung where the cursor is present
 set nowrap          " Don't wrap lines
