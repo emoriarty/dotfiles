@@ -18,6 +18,7 @@ apps=(
   reattach-to-user-namespace
   tmux
   tree
+  vim
   wget
 )
 
