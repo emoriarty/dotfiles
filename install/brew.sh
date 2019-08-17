@@ -1,8 +1,6 @@
 # Install Homebrew
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap homebrew/versions
-brew tap homebrew/dupes
 brew tap Goles/battery
 brew update
 brew upgrade
@@ -12,14 +10,16 @@ brew upgrade
 apps=(
   git
   git-extras
-  grep --with-default-names
+  grep
   nodenv
   nvim
+  rbenv
   reattach-to-user-namespace
   tmux
   tree
   vim
   wget
+  zplug
 )
 
 brew install "${apps[@]}"

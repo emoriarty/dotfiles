@@ -24,6 +24,7 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
   Plug 'morhetz/gruvbox'
   Plug 'w0rp/ale'
   Plug 'vim-airline/vim-airline'
@@ -32,6 +33,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'HerringtonDarkholme/yats.vim' 
   Plug 'elzr/vim-json'
+  Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
   " Markdown
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'

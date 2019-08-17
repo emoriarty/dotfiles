@@ -1,7 +1,6 @@
 # Install Caskroom
 
 brew tap caskroom/cask
-brew install brew-cask
 brew tap caskroom/versions
 
 # Install packages
@@ -9,7 +8,6 @@ brew tap caskroom/versions
 apps=(
   firefox-developer-edition
   google-chrome
-  google-drive
   iterm2
   visual-studio-code
 )
