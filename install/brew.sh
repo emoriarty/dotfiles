@@ -1,6 +1,6 @@
 # Install Homebrew
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew tap Goles/battery
 brew update
 brew upgrade
@@ -12,14 +12,13 @@ apps=(
   git-extras
   grep
   nodenv
-  nvim
   rbenv
   reattach-to-user-namespace
   tmux
   tree
   vim
   wget
-  zplug
+  zsh-completions
 )
 
 brew install "${apps[@]}"

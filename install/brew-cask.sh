@@ -6,9 +6,8 @@ brew tap caskroom/versions
 # Install packages
 
 apps=(
-  firefox-developer-edition
+  firefox
   google-chrome
-  iterm2
   visual-studio-code
 )
 

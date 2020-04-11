@@ -1,14 +1,13 @@
 # .files
 
 These are a basic dotfiles based on [webpro/dotfiles](https://github.com/webpro/dotfiles).
-It installs brew, zsh with [zplug](https://github.com/zplug/zplug) and [vim](http://www.vim.org/) among other resources.
+It installs brew and [vim](http://www.vim.org/) among other resources.
 
 ## Package overview
 
 * Core
   * [Homebrew](http://brew.sh/), [homebrew-cask](http://caskroom.io/)
   * zsh
-  * [zplug](https://github.com/zplug/zplug)
   * [nodenv](https://github.com/nodenv/nodenv)
   * [rbenv](https://github.com/rbenv/rbenv)
 
@@ -22,7 +21,6 @@ It installs brew, zsh with [zplug](https://github.com/zplug/zplug) and [vim](htt
   * wget
   * firefox
   * google-chrome
-  * google-drive
   * visual-studio-code
 
 ## Install
