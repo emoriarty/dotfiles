@@ -1,14 +1,14 @@
 # Install Caskroom
 
-brew tap caskroom/cask
-brew tap caskroom/versions
+brew tap homebrew/cask
+brew tap homebrew/cask-versions
 
 # Install packages
 
 apps=(
-  firefox-developer-edition
+  firefox
   google-chrome
-  iterm2
+  joplin
   visual-studio-code
 )
 

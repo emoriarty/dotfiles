@@ -1,23 +1,25 @@
+if [ "$TMUX" = "" ]; then exec tmux; fi
+
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # https://github.com/robbyrussell/oh-my-zsh/tree/master/lib
-zplug "lib/clipboard", from:oh-my-zsh
-zplug "lib/completion", from:oh-my-zsh
+#zplug "lib/clipboard", from:oh-my-zsh
+#zplug "lib/completion", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
-zplug "lib/functions", from:oh-my-zsh
+#zplug "lib/functions", from:oh-my-zsh
 zplug "lib/git", from:oh-my-zsh
-zplug "lib/grep", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
-zplug "lib/termsupport", from:oh-my-zsh
+#zplug "lib/grep", from:oh-my-zsh
+#zplug "lib/history", from:oh-my-zsh
+#zplug "lib/termsupport", from:oh-my-zsh
 # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
+#zplug "plugins/tmux", from:oh-my-zsh
+#zplug "plugins/npm", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "Tarrasch/zsh-autoenv", from:github
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+#zplug "plugins/command-not-found", from:oh-my-zsh
+#zplug "Tarrasch/zsh-autoenv", from:github
+#zplug "mafredri/zsh-async", from:github
+#zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-syntax-highlighting", from:github,  defer:2
 zplug load --verbose
 
@@ -31,6 +33,7 @@ fi
 
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 alias ctags="`brew --prefix`/bin/ctags"

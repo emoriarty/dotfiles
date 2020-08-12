@@ -1,26 +1,20 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Get current dir (so run this script from anywhere)
 
 export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTFILES_DIR="$( cd "$( dirname "${(%):-%N}" )" && pwd )"
 
 echo "$DOTFILES_DIR"
 
 # Bunch of symlinks
-# (by default zsh prevails before bash)
-ln -sfv "$DOTFILES_DIR/runcom/zshenv" ~/.zshenv
-ln -sfv "$DOTFILES_DIR/runcom/zshrc" ~/.zshrc
-ln -sfv "$DOTFILES_DIR/runcom/tmux.conf" ~/.tmux.conf
-ln -sfv "$DOTFILES_DIR/runcom/ctags" ~/.ctags
-ln -sfv "$DOTFILES_DIR/runcom/vimrc" ~/.vimrc
-ln -sfv "$DOTFILES_DIR/runcom/init.vim" ~/.config/nvim/init.vim
+ln -sfv "$DOTFILES_DIR/runcom/.zshrc"
+ln -sfv "$DOTFILES_DIR/runcom/.zshenv"
+ln -sfv "$DOTFILES_DIR/runcom/.tmux.conf"
+ln -sfv "$DOTFILES_DIR/runcom/.vimrc"
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"
-if [ "$(uname)" == "Darwin" ]; then
-  . "$DOTFILES_DIR/install/brew-cask.sh"
-fi
+. "$DOTFILES_DIR/install/brew-cask.sh"
+. "$DOTFILES_DIR/install/vscode.sh"
 
-# Setting zsh
-. "$DOTFILES_DIR/install/zsh.sh"
