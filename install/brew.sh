@@ -8,6 +8,7 @@ brew upgrade
 # Install packages
 
 apps=(
+  bat
   git
   git-extras
   grep
@@ -18,6 +19,7 @@ apps=(
   tree
   vim
   wget
+  zplug
   zsh-completions
 )
 

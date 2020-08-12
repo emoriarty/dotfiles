@@ -15,7 +15,6 @@ ln -sfv "$DOTFILES_DIR/runcom/.vimrc"
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"
-if [ "$(uname)" == "Darwin" ]; then
-  . "$DOTFILES_DIR/install/brew-cask.sh"
-fi
+. "$DOTFILES_DIR/install/brew-cask.sh"
+. "$DOTFILES_DIR/install/vscode.sh"
 
