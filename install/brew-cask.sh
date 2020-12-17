@@ -6,8 +6,10 @@ brew tap homebrew/cask-versions
 # Install packages
 
 apps=(
+  docker
   firefox
   google-chrome
+  kubernetes-cli
   joplin
   visual-studio-code
 )

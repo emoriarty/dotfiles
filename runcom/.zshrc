@@ -1,4 +1,4 @@
-if [ "$TMUX" = "" ]; then exec tmux; fi
+f [ "$TMUX" = "" ]; then exec tmux; fi
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -31,14 +31,27 @@ if ! zplug check --verbose; then
   fi
 fi
 
-eval "$(nodenv init -)"
-eval "$(rbenv init -)"
-eval "$(direnv hook zsh)"
+if which nodenv > /dev/null; then  eval "$(nodenv init -)"; fi
+if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
+if which pyenv > /dev/null; then  eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"; fi
+if which direnv > /dev/null; then  eval "$(direnv hook zsh)"; fi
+if which goenv > /dev/null; then  eval "$(goenv init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 alias ctags="`brew --prefix`/bin/ctags"
 alias vi=vim
 alias cls=clear
+alias newer="ls -dt \!* | head -1"
+
+# Functions
+function prettygrep() {
+  grep -nr $1 $2 | awk -F: '{print $2" - Line number : "$1}'
+}
+
+function aliases() {
+  alias | grep -i $1 | sort -R | less
+}
+
 # How much time to wait for additional characters in sequence
 KEYTIMEOUT=1
 
@@ -54,7 +67,17 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
-# Functions
-function aliases() {
-  alias | grep -i $1 | sort -R | less
+source "/Users/enrique/Workspace/lunchr/lunchr-docker/tools/lunchr.sh"  # This loads lunchr
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+
+# Prompt
+setopt PROMPT_SUBST
+
+function show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV)) "
+  else
+    echo ""
+  fi
 }
+PS1='$(show_virtual_env)'$PS1

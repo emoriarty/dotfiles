@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  Plug 'vim-python/python-syntax'
   " Markdown
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -53,9 +54,11 @@ call plug#end()
 " Ale options
 let g:ale_linters={
 \ 'javascript': ['prettier', 'eslint'],
+\ 'python': ['flake8', 'pylint']
 \}
 let g:ale_fixers={
 \ 'javascript': ['prettier', 'eslint'],
+\ 'python': ['autopep8', 'yapf']
 \}
 let g:ale_linters_explicit=1
 " Airline options
@@ -67,6 +70,8 @@ let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-f>'
 let g:UltiSnipsJumpBackwardTrigger='<c-b>'
+" Python syntax
+let g:python_highlight_all = 1
 "}}}
 " Functions {{{
 if !exists('*MKDir')
@@ -148,7 +153,8 @@ syntax enable " Setting on default syntax colors
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme onehalflight
+" colorscheme onehalflight
+colorscheme onehalfdark
 " set background=dark
 "}}}
 " Filetype {{{

@@ -9,12 +9,16 @@ brew upgrade
 
 apps=(
   bat
+  direnv
   git
   git-extras
+  goenv
   grep
+  jenv
   nodenv
-  rbenv
+  pyenv
   reattach-to-user-namespace
+  rbenv
   tmux
   tree
   vim
