@@ -21,7 +21,6 @@ apps=(
   pyenv-virtualenv
   reattach-to-user-namespace
   rbenv
-  tmux
   tree
   vim
   wget

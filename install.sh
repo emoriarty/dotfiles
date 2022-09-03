@@ -10,7 +10,6 @@ echo "$DOTFILES_DIR"
 # Bunch of symlinks
 ln -sfv "$DOTFILES_DIR/runcom/.zshrc"
 ln -sfv "$DOTFILES_DIR/runcom/.zshenv"
-ln -sfv "$DOTFILES_DIR/runcom/.tmux.conf"
 ln -sfv "$DOTFILES_DIR/runcom/.vimrc"
 
 # Package managers & packages

@@ -17,7 +17,6 @@ It installs brew and [vim](http://www.vim.org/) among other resources.
   * git-extras
   * vim
   * tree
-  * tmux
   * wget
   * firefox
   * google-chrome
