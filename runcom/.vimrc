@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
+  Plug 'vim-ruby/vim-ruby'
   Plug 'w0rp/ale'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'vim-airline/vim-airline'
@@ -41,6 +42,7 @@ call plug#begin('~/.vim/plugged')
     \ 'do': 'yarn install',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
   Plug 'vim-python/python-syntax'
+  Plug 'aklt/plantuml-syntax'
   " Markdown
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -54,11 +56,13 @@ call plug#end()
 " Ale options
 let g:ale_linters={
 \ 'javascript': ['prettier', 'eslint'],
-\ 'python': ['flake8', 'pylint']
+\ 'python': ['flake8', 'pylint'],
+\ 'ruby': ['standardrb', 'rubocop']
 \}
 let g:ale_fixers={
 \ 'javascript': ['prettier', 'eslint'],
-\ 'python': ['autopep8', 'yapf']
+\ 'python': ['autopep8', 'yapf'],
+\ 'ruby': ['standardrb']
 \}
 let g:ale_linters_explicit=1
 " Airline options
@@ -153,7 +157,7 @@ syntax enable " Setting on default syntax colors
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" colorscheme onehalflight
+"colorscheme onehalflight
 colorscheme onehalfdark
 " set background=dark
 "}}}

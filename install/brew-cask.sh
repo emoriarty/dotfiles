@@ -9,8 +9,6 @@ apps=(
   docker
   firefox
   google-chrome
-  kubernetes-cli
-  joplin
   visual-studio-code
 )
 

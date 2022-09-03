@@ -15,8 +15,10 @@ apps=(
   goenv
   grep
   jenv
+  kubernetes-cli
   nodenv
   pyenv
+  pyenv-virtualenv
   reattach-to-user-namespace
   rbenv
   tmux
