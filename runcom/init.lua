@@ -24,6 +24,34 @@ vim.cmd("set sidescroll=1")     -- Scroll one column at a time
 vim.cmd("set sidescrolloff=16") -- Keep 16 columns to the left and right of the cursor
 vim.cmd("set scrolloff=8")      -- Keep 8 lines above and below the cursor
 
+-- create a function that creates a directory if it doesn't exist
+vim.api.nvim_exec([[
+  if !exists('*MKDir')")
+    function! MKDir(path)
+      silent execute '!mkdir '.a:path.' > /dev/null 2>&1'
+    endfunction
+  endif
+]], false)
+
+-- Backup settings
+vim.cmd("call MKDir('~/.vim/backup')") -- Create backup directory
+vim.cmd("set backup")                  -- Enable backup
+vim.cmd("set backupdir=~/.vim/backup//") -- Backup directory
+vim.cmd("set backupext=.bak")          -- Backup extension
+
+-- Swap settings
+vim.cmd("call MKDir($HOME.'/.vim/swap')") -- Create swap directory
+vim.cmd("set swapfile")              -- Enable swap files
+vim.cmd("set directory=~/.vim/swap//") -- Swap directory
+vim.cmd("set updatecount=100")       -- Number of changes before writing swap file
+
+-- Undo settings
+vim.cmd("call MKDir($HOME.'/.vim/undo')") -- Create swap directory
+vim.cmd("set undofile")            -- Enable undo files
+vim.cmd("set undodir=~/.vim/undo//") -- Undo directory
+vim.cmd("set undolevels=1000")     -- Number of changes to keep
+vim.cmd("set undoreload=10000")    -- Number of lines to keep
+
 -- PLUGIN MANAGER SETUP (lazy.nvim)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
