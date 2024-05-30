@@ -16,13 +16,15 @@ apps=(
   grep
   jenv
   kubernetes-cli
+  neovim
   nodenv
   pyenv
   pyenv-virtualenv
   reattach-to-user-namespace
   rbenv
+  ruby-build
   tree
-  vim
+  neovim
   wget
   zplug
   zsh-completions

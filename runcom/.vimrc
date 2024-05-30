@@ -27,12 +27,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rhubarb'
   Plug 'vim-ruby/vim-ruby'
   Plug 'w0rp/ale'
+  Plug 'prabirshrestha/vim-lsp'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'nvim-tree/nvim-web-devicons' " optional
+  Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'rlue/vim-fold-rspec'
   " Plug 'vim-airline/vim-airline'
   " themes
-  " Plug 'morhetz/gruvbox'
-  " Plug 'arcticicestudio/nord-vim'
-  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  "Plug 'yorickpeterse/vim-paper'
+  "Plug 'yorickpeterse/nvim-grey'
+  #Plug 'rebelot/kanagawa.nvim'
+  "Plug 'yorik1984/newpaper.nvim'
+  Plug 'projekt0n/github-nvim-theme'
   " syntax
   Plug 'mxw/vim-jsx'
   Plug 'pangloss/vim-javascript'
@@ -57,7 +63,7 @@ call plug#end()
 let g:ale_linters={
 \ 'javascript': ['prettier', 'eslint'],
 \ 'python': ['flake8', 'pylint'],
-\ 'ruby': ['standardrb', 'rubocop']
+\ 'ruby': ['standardrb']
 \}
 let g:ale_fixers={
 \ 'javascript': ['prettier', 'eslint'],
@@ -76,6 +82,22 @@ let g:UltiSnipsJumpForwardTrigger='<c-f>'
 let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 " Python syntax
 let g:python_highlight_all = 1
+let g:python3_host_prog = "/usr/bin/python3"
+" vim-lsp
+if executable('standardrb')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'standardrb',
+        \ 'cmd': ['standardrb', '--lsp'],
+        \ 'allowlist': ['ruby'],
+        \ })
+endif
+" nvim.tree.lua
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
+EOF
 "}}}
 " Functions {{{
 if !exists('*MKDir')
@@ -115,6 +137,8 @@ set smartindent   " Smart indent
 "}}}
 " Completion {{{
 set wildmenu  " Enabling smart command line completion on wildcard (<Tab> by default)>
+filetype on
+filetype indent on
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 "}}}
@@ -153,13 +177,12 @@ set wildignore=*/node_modules/*
 set include+=^import.*from.'\zs.*\ze'
 "}}}
 " Colors {{{
-syntax enable " Setting on default syntax colors
-set termguicolors
+syntax on " Setting on default syntax colors
+" set termguicolors
+colorscheme github_light_high_contrast
+set laststatus=3
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"colorscheme onehalflight
-colorscheme onehalfdark
-" set background=dark
 "}}}
 " Filetype {{{
 filetype indent on  " Load specific settings based on file type

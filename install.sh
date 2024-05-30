@@ -10,7 +10,8 @@ echo "$DOTFILES_DIR"
 # Bunch of symlinks
 ln -sfv "$DOTFILES_DIR/runcom/.zshrc"
 ln -sfv "$DOTFILES_DIR/runcom/.zshenv"
-ln -sfv "$DOTFILES_DIR/runcom/.vimrc"
+# ln -sfv "$DOTFILES_DIR/runcom/.vimrc"
+ln -sfv $DOTFILES_DIR/runcom/init.lua ~/.config/nvim/init.lua
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"

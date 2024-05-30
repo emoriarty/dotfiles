@@ -15,7 +15,7 @@ It installs brew and [vim](http://www.vim.org/) among other resources.
 
   * git
   * git-extras
-  * vim
+  * neovim
   * tree
   * wget
   * firefox
@@ -26,7 +26,7 @@ It installs brew and [vim](http://www.vim.org/) among other resources.
 
 On a sparkling fresh installation of MacOS:
   sudo softwareupdate -i -a
-  xcode-select --install 
+  xcode-select --install
 
 ### Clone with git
 
