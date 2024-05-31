@@ -11,7 +11,8 @@ echo "$DOTFILES_DIR"
 ln -sfv "$DOTFILES_DIR/runcom/.zshrc"
 ln -sfv "$DOTFILES_DIR/runcom/.zshenv"
 # ln -sfv "$DOTFILES_DIR/runcom/.vimrc"
-ln -sfv $DOTFILES_DIR/runcom/init.lua ~/.config/nvim/init.lua
+ln -sfv $DOTFILES_DIR/config/nvim/init.lua ~/.config/nvim/init.lua
+ln -sfv $DOTFILES_DIR/config/nvim/lua ~/.config/nvim/lua
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"
