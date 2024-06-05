@@ -31,6 +31,16 @@ end
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
+
+    local ruby_file = find_ruby_version_file()
+
+    if not ruby_file then
+      print("No .ruby-version file found")
+      return
+    end
+
+    print("Found .ruby-version file: " .. ruby_file)
+
     -- Example usage
     local current_ruby_version = vim.fn.system("rbenv version-name")
     local local_ruby_version = vim.fn.system("cd ~/.local/share/nvim && rbenv version-name")

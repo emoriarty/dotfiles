@@ -12,5 +12,6 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 vim.g.ruby_host_prog = vim.fn.system("rbenv which ruby")
 
 require("vim-options")
+require("vim-shortcuts")
 require("lazy").setup("plugins")
-require("vim-init")
+require("ruby-lsp-setup")
