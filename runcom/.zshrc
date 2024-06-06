@@ -34,17 +34,17 @@ fi
 
 #if which nodenv > /dev/null; then  eval "$(nodenv init -)"; fi
 if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
-if which pyenv > /dev/null; then  eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi 
+#if which pyenv > /dev/null; then  eval "$(pyenv init -)"; fi
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi 
 if which direnv > /dev/null; then  eval "$(direnv hook zsh)"; fi
-if which goenv > /dev/null; then  eval "$(goenv init -)"; fi
+#if which goenv > /dev/null; then  eval "$(goenv init -)"; fi
 if which jenv > /dev/null; then
   eval "$(jenv init -)"
   jenv enable-plugin export
 fi
 
 #alias ctags="`brew --prefix`/bin/ctags"
-alias vi=vim
+alias vi=nvim
 alias cls=clear
 alias newer="ls -dt \!* | head -1"
 alias be="bundle exec"

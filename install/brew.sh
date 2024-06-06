@@ -12,14 +12,14 @@ apps=(
   direnv
   git
   git-extras
-  goenv
+#  goenv
   grep
   jenv
   kubernetes-cli
   neovim
   nodenv
-  pyenv
-  pyenv-virtualenv
+#  pyenv
+#  pyenv-virtualenv
   reattach-to-user-namespace
   rbenv
   ruby-build

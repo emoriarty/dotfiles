@@ -6,10 +6,11 @@ brew tap homebrew/cask-versions
 # Install packages
 
 apps=(
+  alacritty
   docker
   firefox
   google-chrome
   visual-studio-code
 )
 
-brew cask install "${apps[@]}"
+brew install --cask "${apps[@]}"

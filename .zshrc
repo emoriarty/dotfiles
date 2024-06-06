@@ -1,0 +1,1 @@
+/Users/enriquearias/.dotfiles/runcom/.zshrc
