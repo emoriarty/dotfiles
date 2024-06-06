@@ -1,6 +1,8 @@
 # if [ "$TMUX" = "" ]; then exec tmux; fi
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export PATH=$PATH:/opt/homebrew/bin
+
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # https://github.com/robbyrussell/oh-my-zsh/tree/master/lib
@@ -30,6 +32,13 @@ if ! zplug check --verbose; then
   if read -q; then
       echo; zplug install
   fi
+fi
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
 fi
 
 #if which nodenv > /dev/null; then  eval "$(nodenv init -)"; fi

@@ -1,1 +1,1 @@
-/Users/enriquearias/.dotfiles/runcom/.zshrc
+/Users/enrique.arias/Workspace/dotfiles/runcom/.zshrc

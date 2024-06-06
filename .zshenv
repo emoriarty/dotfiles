@@ -1,1 +1,1 @@
-/Users/enriquearias/.dotfiles/runcom/.zshenv
+/Users/enrique.arias/Workspace/dotfiles/runcom/.zshenv

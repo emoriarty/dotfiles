@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
       vim.api.nvim_command("MasonUninstall rubocop")
 
       -- run rbenv install from the .ruby-version file
-      print("Installing ruby version: " .. current_ruby_version)
+      print("Installing ruby version " .. current_ruby_version .. " at ~/.local/share/nvim")
       vim.fn.system("cd ~/.local/share/nvim && rbenv local " .. current_ruby_version)
 
       -- install rubocop with mason command
