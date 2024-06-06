@@ -1,0 +1,2 @@
+#import = [ "~/.config/alacritty/fonts/cascadia-mono.toml" ]
+import = [ "~/.config/alacritty/fonts/fira-mono.toml" ]
