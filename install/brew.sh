@@ -19,10 +19,28 @@ apps=(
   reattach-to-user-namespace
   rbenv
   ruby-build
+  tmux
   tree
+  watch
   wget
+  zellij
   zplug
   zsh-completions
 )
 
 brew install "${apps[@]}"
+
+# Install Caskroom
+
+brew tap homebrew/cask
+brew tap homebrew/cask-versions
+
+apps=(
+  alacritty
+  docker
+  firefox
+  google-chrome
+  visual-studio-code
+)
+
+brew install --cask "${apps[@]}"

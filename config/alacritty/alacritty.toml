@@ -11,3 +11,9 @@ padding.x = 16
 padding.y = 14
 decorations = "none"
 opacity = 0.97
+option_as_alt = "Both"
+
+[keyboard]
+bindings = [
+{ key = "F10", action = "ToggleFullscreen" }
+]

@@ -32,9 +32,19 @@ cp $DOTFILES_DIR/config/alacritty/theme.toml ~/.config/alacritty/theme.toml
 cp $DOTFILES_DIR/config/alacritty/themes/*.toml ~/.config/alacritty/themes/
 cp $DOTFILES_DIR/config/alacritty/fonts/*.toml ~/.config/alacritty/fonts/
 
+# ZELLIJ
+ln -sfv $DOTFILES_DIR/config/zellij ~/.config/zellij
+
+# TMUX
+mkdir -p ~/.tmux
+ln -sfv $DOTFILES_DIR/config/tmux/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+
 # INSTALL SCRIPTS
-. "$DOTFILES_DIR/install/brew.sh"
-. "$DOTFILES_DIR/install/fonts.sh"
-. "$DOTFILES_DIR/install/brew-cask.sh"
-. "$DOTFILES_DIR/install/vscode.sh"
+#. "$DOTFILES_DIR/install/brew.sh"
+#. "$DOTFILES_DIR/install/fonts.sh"
+#. "$DOTFILES_DIR/install/vscode.sh"
+#. "$DOTFILES_DIR/install/swile.sh"
+#. "$DOTFILES_DIR/install/mac.sh"
 

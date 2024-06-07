@@ -14,6 +14,6 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # https://github.com/rails/rails/
 # https://stackoverflow.com/questions/41964676/kafka-connect-running-out-of-heap-space
 # export KAFKA_HEAP_OPTS="-Xms512m -Xmx1g"
 
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source ~/.otherenv
