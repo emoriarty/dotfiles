@@ -42,9 +42,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 
 # INSTALL SCRIPTS
-#. "$DOTFILES_DIR/install/brew.sh"
-#. "$DOTFILES_DIR/install/fonts.sh"
-#. "$DOTFILES_DIR/install/vscode.sh"
-#. "$DOTFILES_DIR/install/swile.sh"
-#. "$DOTFILES_DIR/install/mac.sh"
+. "$DOTFILES_DIR/install/brew.sh"
+. "$DOTFILES_DIR/install/fonts.sh"
+. "$DOTFILES_DIR/install/vscode.sh"
+. "$DOTFILES_DIR/install/swile.sh"
+. "$DOTFILES_DIR/install/mac.sh"
 

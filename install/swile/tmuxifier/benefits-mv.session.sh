@@ -9,6 +9,8 @@ if initialize_session "benefits-mv"; then
   new_window "editor"
   select_window 0
   run_cmd "bin/rails s"
+  select_window 1
+  run_cmd "nvim"
 fi
 
 # Finalize session creation and switch/attach to it.
