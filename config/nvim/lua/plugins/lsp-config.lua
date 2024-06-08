@@ -12,27 +12,26 @@ return {
     opts = {
       auto_install = true,
     },
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "tsserver",
-          "quick_lint_js",
-          "html",
-          "lua_ls",
-          "solargraph",
-        },
-      })
-    end,
   },
   {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({})
-      lspconfig.html.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.solargraph.setup({})
+      lspconfig.tsserver.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.solargraph.setup({
+        capabilities = capabilities,
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
