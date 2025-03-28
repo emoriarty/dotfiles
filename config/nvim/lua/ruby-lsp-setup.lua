@@ -29,6 +29,33 @@ local function find_ruby_version_file()
   return nil -- Not found
 end
 
+local function find_rubocop_file()
+  local current_dir = vim.fn.getcwd()
+  local sep = package.config:sub(1, 1) -- Get the path separator
+
+  local rubocop_path = current_dir .. sep .. ".rubocop.yml"
+  print("rubocop_path: " .. rubocop_path)
+  if file_exists(rubocop_path) then
+    return rubocop_path
+  end
+
+  return nil -- Not found
+end
+
+local function find_standardrb_file()
+  local current_dir = vim.fn.getcwd()
+  local sep = package.config:sub(1, 1) -- Get the path separator
+
+  local standardrb_path = current_dir .. sep .. ".standard.yml"
+
+  print("standardrb_path: " .. standardrb_path)
+  if file_exists(standardrb_path) then
+    return standardrb_path
+  end
+
+  return nil -- Not found
+end
+
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
 
@@ -52,9 +79,18 @@ vim.api.nvim_create_autocmd("VimEnter", {
       -- run rbenv install from the .ruby-version file
       print("Installing ruby version " .. current_ruby_version .. " at ~/.local/share/nvim")
       vim.fn.system("cd ~/.local/share/nvim && rbenv local " .. current_ruby_version)
+    end
 
+    -- TODO: Review all thise section. Every time that nvim starts, it will install rubocop or standardrb. Not good.
+    -- Check if .rubocop.yml or .standard.yml is not nil
+    if find_rubocop_file() ~= nil then
       -- install rubocop with mason command
       vim.api.nvim_command("MasonInstall rubocop")
+    elseif find_standardrb_file() ~= nil then
+      -- install standardrb with mason command
+      vim.api.nvim_command("MasonInstall standardrb")
+    else
+      print("No .rubocop.yml or .standard.yml file found")
     end
   end,
 })

@@ -1,6 +1,9 @@
 -- Telescope plugin allows for fuzzy finding, live grep, etc.
 return {
   {
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
+  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.6',
     dependencies = {
@@ -8,6 +11,12 @@ return {
     },
     config = function()
       require("telescope").setup({
+        pickers = {
+          find_files = {
+            hidden = true,
+            theme = "ivy",
+          },
+        },
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
@@ -22,8 +31,5 @@ return {
 
       require("telescope").load_extension("ui-select")
     end
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
   },
 }
