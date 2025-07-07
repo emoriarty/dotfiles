@@ -23,8 +23,8 @@ zplug "plugins/git", from:oh-my-zsh
 #zplug "mafredri/zsh-async", from:github
 #zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 #zplug "zsh-users/zsh-syntax-highlighting", from:github,  defer:2
-zplug "plugins/git-prompt", from:oh-my-zsh
-zplug load --verbose
+#zplug "plugins/git-prompt", from:oh-my-zsh
+zplug load #--verbose
 
 # Actually install plugins, prompt user input
 if ! zplug check --verbose; then
@@ -43,8 +43,8 @@ fi
 
 #if which nodenv > /dev/null; then  eval "$(nodenv init -)"; fi
 if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
-#if which pyenv > /dev/null; then  eval "$(pyenv init -)"; fi
-#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi 
+if which pyenv > /dev/null; then  eval "$(pyenv init -)"; fi
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 if which direnv > /dev/null; then  eval "$(direnv hook zsh)"; fi
 #if which goenv > /dev/null; then  eval "$(goenv init -)"; fi
 if which jenv > /dev/null; then
@@ -53,10 +53,11 @@ if which jenv > /dev/null; then
 fi
 
 #alias ctags="`brew --prefix`/bin/ctags"
-alias vi=nvim
+#alias vi=nvim
 alias cls=clear
 alias newer="ls -dt \!* | head -1"
 alias be="bundle exec"
+alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest'
 
 # Functions
 function prettygrep() {
@@ -113,4 +114,6 @@ function armageddon() {
     docker volume rm $(docker volume ls --filter dangling=true -q)
     docker rmi -f $(docker images -qa)
 }
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+
+eval "$(starship init zsh)"

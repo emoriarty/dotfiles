@@ -10,6 +10,7 @@ brew upgrade
 apps=(
   bat
   direnv
+  fd # required by telescope.nvim (live grep)
   git
   git-extras
 #  goenv
@@ -18,7 +19,9 @@ apps=(
   neovim
   reattach-to-user-namespace
   rbenv
+  ripgrep # required by telescope.nvim (live grep)
   ruby-build
+  starship
   tmux
   tree
   watch
@@ -32,15 +35,16 @@ brew install "${apps[@]}"
 
 # Install Caskroom
 
-brew tap homebrew/cask
-brew tap homebrew/cask-versions
+#brew tap homebrew/cask
+#brew tap homebrew/cask-versions
 
 apps=(
   alacritty
   docker
   firefox
-  google-chrome
+#  google-chrome
   visual-studio-code
+  warp
 )
 
 brew install --cask "${apps[@]}"

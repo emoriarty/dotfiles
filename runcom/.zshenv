@@ -6,6 +6,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 export BAT_THEME=ansi-light
 export LANG="en_US.UTF-8"
+export EDITOR="nvim"
 
 # Ruby
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # https://github.com/rails/rails/issues/38560
@@ -17,3 +18,4 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # https://github.com/rails/rails/
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source ~/.otherenv
+. "$HOME/.cargo/env"
