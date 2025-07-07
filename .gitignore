@@ -1,5 +1,0 @@
-*.DS_Store
-
-runcom/.vim/autoload
-runcom/.vim/bundle
-runcom/.vim/.netrwhist
