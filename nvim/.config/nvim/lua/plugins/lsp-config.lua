@@ -10,6 +10,13 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
+      ensure_installed = {
+        "tsserver",
+        "html",
+        "lua_ls",
+        "solargraph", -- o "ruby_lsp" si prefieres
+        "shopify_theme_ls",
+      },
       auto_install = true,
     },
   },
@@ -17,24 +24,26 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
       local lspconfig = require("lspconfig")
-      -- lspconfig.ts_ls.setup({
-      --   capabilities = capabilities,
-      -- })
-      -- lspconfig.html.setup({
-      --   capabilities = capabilities,
-      -- })
-      -- lspconfig.lua_ls.setup({
-      --   capabilities = capabilities,
-      -- })
-      lspconfig.ruby_lsp.setup({
+
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
-      -- lspconfig.solargraph.setup({
-      --   capabilities = capabilities,
-      -- })
+      lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.solargraph.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.shopify_theme_ls.setup({
+        capabilities = capabilities,
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
