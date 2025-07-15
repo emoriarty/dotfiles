@@ -13,3 +13,5 @@ style = "Bold"
 family = "MesloLGS Nerd Font"
 style = "Italic"
 
+[terminal.shell]
+program="/usr/bin/tmux"
