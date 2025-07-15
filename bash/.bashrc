@@ -1,5 +1,3 @@
-if [ "$TMUX" = "" ]; then exec tmux; fi
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -117,8 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH="$HOME/.rbenv/bin:$PATH"
 
 # rbenv setup
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
 
