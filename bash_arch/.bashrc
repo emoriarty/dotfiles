@@ -3,6 +3,13 @@
 #
 
 eval "$(starship init bash)"
+eval "$(mise activate bash)"
+eval "$(direnv hook bash)"
+
+# Bash autocompletions
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+  . /usr/share/bash-completion/bash_completion
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
