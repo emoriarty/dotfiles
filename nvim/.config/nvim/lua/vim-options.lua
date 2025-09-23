@@ -1,3 +1,6 @@
+-- Leader key
+vim.g.mapleader = " " -- Set leader key to space
+
 -- Indentation settings
 vim.cmd("set expandtab") -- Use spaces instead of tabs
 vim.cmd("set tabstop=2") -- Tab size
@@ -7,11 +10,7 @@ vim.cmd("set smarttab") -- Smart tabs
 vim.cmd("set autoindent") -- Auto indent
 vim.cmd("set smartindent") -- Smart indent
 
--- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+-- Navigate vim panes better (handled by nvim-tmux-navigator plugin)
 
 -- UI settings
 vim.cmd("set ruler") -- Show line numbers
