@@ -41,6 +41,8 @@ vim.api.nvim_exec(
   false
 )
 
+vim.opt.updatetime = 400  -- 300ms instead of default 4000ms
+
 -- Backup settings
 vim.cmd("call MKDir('~/.vim/backup')") -- Create backup directory
 vim.cmd("set backup") -- Enable backup
