@@ -121,3 +121,8 @@ if [ -d "$HOME/.rbenv" ] && command -v rbenv >/dev/null; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+#
+# mise setup
+if command -v mise >/dev/null; then
+  eval "$(mise activate bash)"
+fi
