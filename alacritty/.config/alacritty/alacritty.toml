@@ -1,46 +1,14 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/themes/autumn.toml"
+]
+
 [font]
 size = 12.0
 
-[font.normal]
-family = "FiraCode Nerd Font Mono"
-style = "Retina"
-
-[font.bold]
-family = "FiraCode Nerd Font Mono"
-style = "Bold"
-
-[font.italic]
-family = "FiraCode Nerd Font Mono"
-style = "Retina"
-
-[font.bold_italic]
-family = "FiraCode Nerd Font Mono"
-style = "Bold"
-
 [terminal.shell]
-program = "/opt/homebrew/bin/tmux"
+program = "/usr/bin/tmux" # Ubuntu
+# program = "/opt/homebrew/bin/tmux" # MAC OS
 
-# THEME-SWITCH-MARKER: Light theme colors
-[colors.primary]
-background = "#ffffff"
-foreground = "#383a42"
-
-[colors.normal]
-black = "#383a42"
-red = "#e45649"
-green = "#50a14f"
-yellow = "#c18401"
-blue = "#4078f2"
-magenta = "#a626a4"
-cyan = "#0184bc"
-white = "#fafafa"
-
-[colors.bright]
-black = "#4f525d"
-red = "#e06c75"
-green = "#98c379"
-yellow = "#e5c07b"
-blue = "#61afef"
-magenta = "#c678dd"
-cyan = "#56b6c2"
-white = "#ffffff"
+[env]
+TERM="xterm-256color"
