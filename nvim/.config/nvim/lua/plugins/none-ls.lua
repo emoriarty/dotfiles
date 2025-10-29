@@ -13,6 +13,9 @@ return {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.erb_lint,
+        -- Python linting and formatting with ruff
+        null_ls.builtins.diagnostics.ruff,
+        null_ls.builtins.formatting.ruff,
         null_ls.builtins.diagnostics.rubocop.with({
           command = "bundle",
           args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
