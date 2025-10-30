@@ -1,0 +1,11 @@
+[Unit]
+Description=Alacritty theme monitor (watches system theme changes)
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'gsettings monitor org.gnome.desktop.interface color-scheme | while read -r line; do %h/.config/alacritty/switch-theme.sh; done'
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
