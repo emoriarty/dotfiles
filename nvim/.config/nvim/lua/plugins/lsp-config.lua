@@ -16,6 +16,8 @@ return {
         "lua_ls",
         "solargraph",
         "shopify_theme_ls",
+        "ruff",
+        "pyright",
       },
       auto_install = true,
     },
@@ -185,6 +187,28 @@ return {
       lspconfig.shopify_theme_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
+      })
+
+      -- Python - Ruff (linting and formatting)
+      lspconfig.ruff.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        -- Ruff settings can be configured in ruff.toml or pyproject.toml in your project
+      })
+
+      -- Python - Pyright (type checking and language features)
+      lspconfig.pyright.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          python = {
+            analysis = {
+              -- Disable diagnostics from pyright since ruff handles linting
+              typeCheckingMode = "basic",
+              diagnosticMode = "workspace",
+            },
+          },
+        },
       })
     end,
   },

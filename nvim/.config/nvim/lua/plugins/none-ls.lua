@@ -13,9 +13,8 @@ return {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.erb_lint,
-        -- Python linting and formatting with ruff
-        null_ls.builtins.diagnostics.ruff,
-        null_ls.builtins.formatting.ruff,
+        -- Python: ruff is now configured as an LSP server in lsp-config.lua
+        -- This provides better integration than none-ls
         null_ls.builtins.diagnostics.rubocop.with({
           command = "bundle",
           args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
