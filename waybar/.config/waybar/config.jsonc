@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": [ "mpris", "tray", "network", "pulseaudio", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -37,5 +37,17 @@
           "default": ["", "", " "]
       },
       "on-click": "pavucontrol"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": " {title}",
+    "format-playing": " {title}",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
   }
 }
